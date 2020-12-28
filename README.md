@@ -68,3 +68,10 @@ __etl.py__ reads and processes files from song_data and log_data and loads them 
 __sql_queries.py__ contains all the sql queries, and is imported into the last three files above.
 
 __README.md__ provides information of this project.
+
+## 5.How to run the Python scripts
+
+1. Run __create_tables.py__ to create the sparkifydb database, and the five tables. 
+2. Run __etl.py__ to insert records into the tables. 
+3. Run __test.ipynb__, __etl.ipynb__, or __etl.py__ successfully only after running __create_tables.py__ at least once.
+4. When rerunning __test.ipynb__ remember to restart this notebook to close the connection to the database. Otherwise, it won't be able to run the code in __create_tables.py__, __etl.py__, or __etl.ipynb__ files since multiple connections to the same database is not possible.
