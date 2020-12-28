@@ -39,21 +39,26 @@ A star schema was designed. This includes the following tables.
 __Fact Table__
 
 __1.songplays__ - records in log data associated with song plays i.e. records with page NextSong
-*songplay_id, start_time, user_id, level, song_id, artist_id, session_id, location, user_agent
+
+* songplay_id, start_time, user_id, level, song_id, artist_id, session_id, location, user_agent
 
 __Dimension Tables__
 
 __2.users__ - users in the app
-*user_id, first_name, last_name, gender, level
+
+* user_id, first_name, last_name, gender, level
 
 __3.songs__ - songs in music database
-*song_id, title, artist_id, year, duration
+
+* song_id, title, artist_id, year, duration
 
 __4.artists__ - artists in music database
-*artist_id, name, location, latitude, longitude
+
+* artist_id, name, location, latitude, longitude
 
 __5.time__ - timestamps of records in songplays broken down into specific units
-*start_time, hour, day, week, month, year, weekday
+
+* start_time, hour, day, week, month, year, weekday
 
 ## 4.Project Files
 
@@ -68,3 +73,10 @@ __etl.py__ reads and processes files from song_data and log_data and loads them 
 __sql_queries.py__ contains all the sql queries, and is imported into the last three files above.
 
 __README.md__ provides information of this project.
+
+## 5.How to run the Python scripts
+
+* Run __create_tables.py__ to create the sparkifydb database, and the five tables. 
+* Run __etl.py__ to insert records into the tables. 
+* Run __test.ipynb__, __etl.ipynb__, or __etl.py__ successfully only after running __create_tables.py__ at least once.
+* When rerunning __test.ipynb__ remember to restart this notebook to close the connection to the database. Otherwise, it won't be able to run the code in __create_tables.py__, __etl.py__, or __etl.ipynb__ files since multiple connections to the same database is not possible.
